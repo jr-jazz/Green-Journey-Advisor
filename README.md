@@ -1,2 +1,0 @@
-# Green-Journey-Advisor
-505-IT-HCI-AND-WEB-DEVELOPMENT-CW02

@@ -1,0 +1,23 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+header nav a {
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #d1fae5;
+}
+
+button, a.bg-green-500 {
+    transition: background-color 0.3s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    header nav ul {
+        flex-direction: column;
+        space-y-2;
+    }
+}
