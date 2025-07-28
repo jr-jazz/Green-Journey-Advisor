@@ -1,0 +1,7 @@
+**Description**: A medium-fidelity wireframe of the add option page, with a styled form layout.
+
+**Note**: Create in Figma with:
+- Header: Same as homepage.
+- Form: Grayscale inputs for “Destination”, “Transport Mode (Dropdown)”, “Carbon Footprint”, and a styled submit button.
+- Footer: Same as homepage.
+Export as `medium_fidelity_wireframe_add_option.png` and place in `prototypes/`.

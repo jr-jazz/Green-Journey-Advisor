@@ -1,0 +1,8 @@
+**Description**: A medium-fidelity wireframe of the travel options page, with a grid layout and styled cards.
+
+**Note**: Create in Figma with:
+- Header: Same as homepage.
+- Grid: Three grayscale cards with placeholders for “Destination”, “Transport”, “CO₂”.
+- Button: Styled “Add New Option” button.
+- Footer: Same as homepage.
+Export as `medium_fidelity_wireframe_options.png` and place in `prototypes/`.

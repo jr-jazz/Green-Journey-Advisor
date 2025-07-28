@@ -1,0 +1,9 @@
+**Description**: A medium-fidelity wireframe of the homepage, with more detailed layout and grayscale elements, showing navigation, a hero image placeholder, a carousel, and a pop-up modal.
+
+**Note**: Create in Figma with:
+- Header: Styled navigation bar with text links.
+- Hero: Large grayscale image placeholder with text “Plan Your Sustainable Journey” and a button.
+- Carousel: Three grayscale rectangles labeled “Destination 1”, “2”, “3” with arrows.
+- Pop-up: Rectangle labeled “Welcome Modal: Explore Now”.
+- Footer: Styled footer text.
+Export as `medium_fidelity_wireframe_homepage.png` and place in `prototypes/`.
