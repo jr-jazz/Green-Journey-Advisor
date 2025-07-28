@@ -4,20 +4,20 @@ from mysql.connector import Error
 def init_db():
     """Initialize the MySQL database and create travel_options table."""
     try:
-       
+        # Connect to MySQL server (without specifying a database)
         conn = mysql.connector.connect(
-            host='localhost',         
-            user='root',      
-            password='root' 
+            host='localhost',
+            user='root',
+            password='root'
         )
         cursor = conn.cursor()
 
         # Create database if it doesn't exist
-        cursor.execute("CREATE DATABASE IF NOT EXISTS green-journey-backend")
-        print("Database 'green-journey-backend' created or already exists.")
+        cursor.execute("CREATE DATABASE IF NOT EXISTS green_journey")
+        print("Database 'green_journey' created or already exists.")
 
         # Switch to the database
-        cursor.execute("USE green-journey-backend")
+        cursor.execute("USE green_journey")
 
         # Create travel_options table
         cursor.execute("""
