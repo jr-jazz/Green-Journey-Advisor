@@ -1,23 +1,134 @@
-body {
-    font-family: 'Inter', sans-serif;
-}
+/* Hero Section */
+     .hero {
+         position: relative;
+         width: 100%;
+         height: 400px;
+         background: url('../images/hero.jpg') no-repeat center;
+         background-size: cover;
+         overflow: hidden;
+     }
+     .text-center {
+         position: relative;
+         z-index: 1;
+         color: white;
+         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+         padding: 20px;
+         text-align: center;
+     }
+     .text-4xl {
+         font-size: 2.25rem;
+         line-height: 2.5rem;
+     }
+     .text-xl {
+         font-size: 1.25rem;
+         line-height: 1.75rem;
+     }
+     .font-bold {
+         font-weight: 700;
+     }
+     .mb-4 {
+         margin-bottom: 1rem;
+     }
+     .mb-6 {
+         margin-bottom: 1.5rem;
+     }
+     .bg-green-500 {
+         background-color: #22c55e;
+     }
+     .text-white {
+         color: #ffffff;
+     }
+     .px-6 {
+         padding-left: 1.5rem;
+         padding-right: 1.5rem;
+     }
+     .py-3 {
+         padding-top: 0.75rem;
+         padding-bottom: 0.75rem;
+     }
+     .rounded {
+         border-radius: 0.25rem;
+     }
+     .hover\:bg-green-700:hover {
+         background-color: #15803d;
+     }
+     .transition {
+         transition: all 0.3s ease;
+     }
 
-header nav a {
-    transition: color 0.3s;
-}
+     /* Navigation */
+     header nav ul {
+         display: flex;
+         list-style: none;
+         gap: 1rem;
+     }
 
-header nav a:hover {
-    color: #d1fae5;
-}
+     /* Form */
+     .max-w-md {
+         max-width: 28rem;
+     }
+     .mx-auto {
+         margin-left: auto;
+         margin-right: auto;
+     }
+     .border {
+         border: 1px solid #d1d5db;
+     }
 
-button, a.bg-green-500 {
-    transition: background-color 0.3s;
-}
+     /* Carousel */
+     .carousel {
+         display: flex;
+         overflow-x: auto;
+         gap: 10px;
+         padding: 20px;
+     }
+     .carousel img {
+         width: 300px;
+         height: 200px;
+         object-fit: cover;
+         border-radius: 8px;
+         cursor: pointer;
+     }
 
-/* Responsive adjustments */
-@media (max-width: 640px) {
-    header nav ul {
-        flex-direction: column;
-        space-y-2;
-    }
-}
+     /* Modal */
+     .modal {
+         display: none;
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: rgba(0, 0, 0, 0.5);
+         z-index: 1000;
+     }
+     .modal.hidden {
+         display: none;
+     }
+     .modal-content {
+         background: white;
+         margin: 10% auto;
+         padding: 20px;
+         width: 80%;
+         max-width: 500px;
+         border-radius: 8px;
+     }
+     .close {
+         float: right;
+         font-size: 1.5rem;
+         cursor: pointer;
+     }
+
+     /* Responsive adjustments */
+     @media (max-width: 640px) {
+         header nav ul {
+             flex-direction: column;
+             gap: 0.5rem;
+         }
+         .hero {
+             height: 500px;
+         }
+         .carousel img {
+             width: 200px;
+             height: 150px;
+         }
+     }

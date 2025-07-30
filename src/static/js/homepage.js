@@ -1,45 +1,49 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Welcome Modal
-    const welcomeModal = document.getElementById('welcomeModal');
-    const closeModal = document.getElementById('closeModal');
-    if (welcomeModal) {
-        welcomeModal.style.display = 'flex';
-        closeModal.addEventListener('click', () => {
-            welcomeModal.style.display = 'none';
-        });
-    }
+function togglePaymentFields() {
+  const paymentMethod = document.getElementById('payment_method').value;
+  const creditCardFields = document.getElementById('credit-card-fields');
+  const paypalFields = document.getElementById('paypal-fields');
+  creditCardFields.classList.add('hidden');
+  paypalFields.classList.add('hidden');
+  if (paymentMethod === 'Credit Card') {
+    creditCardFields.classList.remove('hidden');
+  } else if (paymentMethod === 'PayPal') {
+    paypalFields.classList.remove('hidden');
+  }
+}
 
-    // Cookie Consent Modal
-    const cookieModal = document.getElementById('cookieModal');
-    const acceptCookies = document.getElementById('acceptCookies');
-    if (cookieModal && !localStorage.getItem('cookiesAccepted')) {
-        cookieModal.style.display = 'block';
-        acceptCookies.addEventListener('click', () => {
-            cookieModal.style.display = 'none';
-            localStorage.setItem('cookiesAccepted', 'true');
-        });
-    }
+function updatePrice() {
+  const startPoint = document.getElementById('start_point').value;
+  const endPoint = document.getElementById('end_point').value;
+  const adults = parseInt(document.getElementById('adults').value) || 1;
+  const children = parseInt(document.getElementById('children').value) || 0;
+  const pricePreview = document.getElementById('price-preview');
+  const priceValue = document.getElementById('price-value');
 
-    // Carousel
-    const carouselInner = document.querySelector('.carousel-inner');
-    const carouselItems = document.querySelectorAll('.carousel-item');
-    let currentIndex = 0;
+  if (!startPoint || !endPoint || startPoint === endPoint) {
+    pricePreview.classList.add('hidden');
+    return;
+  }
 
-    function showSlide(index) {
-        if (index >= carouselItems.length) index = 0;
-        if (index < 0) index = carouselItems.length - 1;
-        carouselInner.style.transform = `translateX(-${index * 100}%)`;
-        currentIndex = index;
-    }
-
-    document.querySelector('.carousel-control.next').addEventListener('click', () => {
-        showSlide(currentIndex + 1);
+  fetch('/get_price', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: `start_point=${encodeURIComponent(startPoint)}&end_point=${encodeURIComponent(endPoint)}`
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        pricePreview.classList.add('hidden');
+      } else {
+        const basePrice = data.price;
+        const totalPrice = (basePrice * adults) + (basePrice * 0.5 * children);
+        priceValue.textContent = totalPrice.toFixed(2);
+        pricePreview.classList.remove('hidden');
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching price:', error);
+      pricePreview.classList.add('hidden');
     });
-
-    document.querySelector('.carousel-control.prev').addEventListener('click', () => {
-        showSlide(currentIndex - 1);
-    });
-
-    // Auto-slide every 5 seconds
-    setInterval(() => showSlide(currentIndex + 1), 5000);
-});
+}

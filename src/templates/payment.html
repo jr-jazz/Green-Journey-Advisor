@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="payment">
+    <h2 class="text-2xl font-bold mb-4 text-center">Payment for {{ option.transport_mode }} from {{ option.start_point }} to {{ option.end_point }}</h2>
+    <div class="max-w-md mx-auto border p-4 rounded pricing-card">
+        <p><i class="fas {% if option.transport_mode == 'Train' %}fa-train{% elif option.transport_mode == 'Bus' %}fa-bus{% else %}fa-car{% endif %}"></i> <strong>Route:</strong> {{ option.start_point }} to {{ option.end_point }}</p>
+        <p><i class="fas {% if option.transport_mode == 'Train' %}fa-train{% elif option.transport_mode == 'Bus' %}fa-bus{% else %}fa-car{% endif %}"></i> <strong>Transport Mode:</strong> {{ option.transport_mode }}</p>
+        <p><i class="fas fa-leaf"></i> <strong>Carbon Footprint:</strong> {{ option.carbon_footprint }} kg CO2</p>
+        <p><i class="fas fa-user"></i> <strong>Travelers:</strong> {{ adults }} Adult(s), {{ children }} Child(ren)</p>
+        <p><i class="fas fa-pound-sign"></i> <strong>Total Price:</strong> £{{ option.price | round(2) }}</p>
+        <p class="text-sm text-gray-600 mb-4">This is a mock payment form for demonstration purposes.</p>
+        <form action="{{ url_for('process_payment') }}" method="POST" class="mt-4">
+            <input type="hidden" name="option_id" value="{{ option.id }}">
+            <label for="payment_method" class="form-label"><i class="fas fa-wallet"></i> Payment Method</label>
+            <select id="payment_method" name="payment_method" class="w-full p-2 mb-4 border rounded" required onchange="togglePaymentFields()">
+                <option value="" disabled selected>Select payment method</option>
+                <option value="Credit Card">Credit Card</option>
+                <option value="PayPal">PayPal</option>
+            </select>
+            <div id="credit-card-fields" class="hidden">
+                <label for="card_number" class="form-label"><i class="fas fa-credit-card"></i> Card Number</label>
+                <input type="text" id="card_number" name="card_number" class="w-full p-2 mb-4 border rounded" placeholder="1234 5678 9012 3456" maxlength="19">
+                <label for="expiry" class="form-label"><i class="fas fa-calendar-alt"></i> Expiry Date</label>
+                <input type="text" id="expiry" name="expiry" class="w-full p-2 mb-4 border rounded" placeholder="MM/YY" maxlength="5">
+                <label for="cvv" class="form-label"><i class="fas fa-lock"></i> CVV</label>
+                <input type="text" id="cvv" name="cvv" class="w-full p-2 mb-4 border rounded" placeholder="123" maxlength="3">
+            </div>
+            <div id="paypal-fields" class="hidden">
+                <label for="paypal_id" class="form-label"><i class="fab fa-paypal"></i> PayPal Email/ID</label>
+                <input type="email" id="paypal_id" name="paypal_id" class="w-full p-2 mb-4 border rounded" placeholder="example@paypal.com">
+            </div>
+            <label for="email" class="form-label"><i class="fas fa-envelope"></i> Email for Confirmation</label>
+            <input type="email" id="email" name="email" class="w-full p-2 mb-4 border rounded" required placeholder="your@email.com">
+            <button type="submit" class="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-700 transition" aria-label="Complete Payment"><i class="fas fa-check"></i> Complete Payment</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

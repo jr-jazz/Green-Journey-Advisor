@@ -1,82 +1,42 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script>{% extends 'base.html' %}
-
+{% extends "base.html" %}
 {% block content %}
-    <section class="hero">
-        <div class="text-center">
-            <h2 class="text-4xl font-bold mb-4">Plan Your Sustainable Journey</h2>
-            <p class="text-xl mb-6">Discover eco-friendly travel options to reduce your carbon footprint.</p>
-            <a href="{{ url_for('options') }}" class="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-700 transition" aria-label="View Travel Options">Explore Options</a>
-        </div>
-    </section>
-    <section class="py-8">
-        <h2 class="text-2xl font-bold text-center mb-4">Featured Destinations</h2>
-        <div class="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item">
-                    <img src="{{ url_for('static', filename='images/destination1.jpg') }}" alt="Bicycle-friendly city">
-                    <p class="mt-2">Cycle through vibrant cities</p>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ url_for('static', filename='destination2.jpg') }}" alt="Scenic train route">
-                    <p class="mt-2">Enjoy scenic train journeys</p>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ url_for('static', filename='images/destination3.jpg') }}" alt="Electric car travel">
-                    <p class="mt-2">Drive sustainably with electric cars</p>
-                </div>
-            </div>
-            <div class="carousel-control prev"><</div>
-            <div class="carousel-control next">></div>
-        </div>
-    </section>
-    <div id="welcomeModal" class="modal">
-        <div class="modal-content">
-            <h3 class="text-xl font-bold mb-2">Welcome to Green Journey Advisor!</h3>
-            <p>Start planning your eco-friendly trip today.</p>
-            <button id="closeModal" class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700">Explore Now</button>
-        </div>
+<section class="hero">
+    <div class="text-center">
+        <h2 class="text-4xl font-bold mb-4">Plan Your Sustainable Journey</h2>
+        {% if 'user_id' in session %}
+        <p class="text-xl mb-4">Welcome back! Start planning your eco-friendly trip.</p>
+        {% else %}
+        <p class="text-xl mb-4">Discover eco-friendly travel options to reduce your carbon footprint.</p>
+        {% endif %}
+        {% if error %}
+        <p class="text-red-500 mb-4">{{ error }}</p>
+        {% endif %}
+        <form action="{{ url_for('select_route') }}" method="POST" class="max-w-md mx-auto">
+            <label for="start_point" class="form-label"><i class="fas fa-map-marker-alt"></i> Start Point</label>
+            <select id="start_point" name="start_point" class="w-full p-2 mb-4 border rounded" required onchange="updatePrice()">
+                <option value="" disabled selected>Select start point</option>
+                <option value="London">London</option>
+                <option value="Paris">Paris</option>
+                <option value="Amsterdam">Amsterdam</option>
+            </select>
+            <label for="end_point" class="form-label"><i class="fas fa-map-marker-alt"></i> End Point</label>
+            <select id="end_point" name="end_point" class="w-full p-2 mb-4 border rounded" required onchange="updatePrice()">
+                <option value="" disabled selected>Select end point</option>
+                <option value="London">London</option>
+                <option value="Paris">Paris</option>
+                <option value="Amsterdam">Amsterdam</option>
+            </select>
+            <label for="inbound_date" class="form-label"><i class="fas fa-calendar-alt"></i> Inbound Date</label>
+            <input type="date" id="inbound_date" name="inbound_date" class="w-full p-2 mb-4 border rounded" required>
+            <label for="outbound_date" class="form-label"><i class="fas fa-calendar-alt"></i> Outbound Date</label>
+            <input type="date" id="outbound_date" name="outbound_date" class="w-full p-2 mb-4 border rounded" required>
+            <label for="adults" class="form-label"><i class="fas fa-user"></i> Adults</label>
+            <input type="number" id="adults" name="adults" class="w-full p-2 mb-4 border rounded" min="1" value="1" required onchange="updatePrice()">
+            <label for="children" class="form-label"><i class="fas fa-child"></i> Children</label>
+            <input type="number" id="children" name="children" class="w-full p-2 mb-4 border rounded" min="0" value="0" required onchange="updatePrice()">
+            <p id="price-preview" class="text-xl mb-6 hidden"><i class="fas fa-pound-sign"></i> Estimated Price: £<span id="price-value">0</span></p>
+            <button type="submit" class="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-700 transition" aria-label="View Travel Options"><i class="fas fa-search"></i> Find Routes</button>
+        </form>
     </div>
-    <div id="cookieModal" class="cookie-modal" style="display: none;">
-        <p>We use cookies to enhance your experience. Accept to continue.</p>
-        <button id="acceptCookies" class="mt-2 bg-white text-green-600 px-4 py-1 rounded">Accept</button>
-    </div>
+</section>
 {% endblock %}

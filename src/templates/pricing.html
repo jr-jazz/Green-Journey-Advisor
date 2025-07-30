@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="pricing">
+    <h2 class="text-2xl font-bold mb-4 text-center">Pricing for {{ option.transport_mode }} from {{ option.start_point }} to {{ option.end_point }}</h2>
+    <div class="max-w-md mx-auto border p-4 rounded pricing-card">
+        <p><i class="fas {% if option.transport_mode == 'Train' %}fa-train{% elif option.transport_mode == 'Bus' %}fa-bus{% else %}fa-car{% endif %}"></i> <strong>Route:</strong> {{ option.start_point }} to {{ option.end_point }}</p>
+        <p><i class="fas {% if option.transport_mode == 'Train' %}fa-train{% elif option.transport_mode == 'Bus' %}fa-bus{% else %}fa-car{% endif %}"></i> <strong>Transport Mode:</strong> {{ option.transport_mode }}</p>
+        <p><i class="fas fa-leaf"></i> <strong>Carbon Footprint:</strong> {{ option.carbon_footprint }} kg CO2</p>
+        <p><i class="fas fa-user"></i> <strong>Travelers:</strong> {{ adults }} Adult(s), {{ children }} Child(ren)</p>
+        <p><i class="fas fa-pound-sign"></i> <strong>Total Price:</strong> £{{ option.price | round(2) }}</p>
+        <a href="{{ url_for('payment', option_id=option.id, adults=adults, children=children) }}" class="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-700 transition block text-center mt-4" aria-label="Proceed to Payment"><i class="fas fa-arrow-right"></i> Proceed to Payment</a>
+    </div>
+</section>
+{% endblock %}

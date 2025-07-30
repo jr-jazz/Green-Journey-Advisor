@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="confirmation">
+    <h2 class="text-2xl font-bold mb-4 text-center">Payment Confirmation</h2>
+    <div class="max-w-md mx-auto border p-4 rounded confirmation-card">
+        <p><i class="fas {% if option.transport_mode == 'Train' %}fa-train{% elif option.transport_mode == 'Bus' %}fa-bus{% else %}fa-car{% endif %}"></i> <strong>Route:</strong> {{ option.start_point }} to {{ option.end_point }}</p>
+        <p><i class="fas {% if option.transport_mode == 'Train' %}fa-train{% elif option.transport_mode == 'Bus' %}fa-bus{% else %}fa-car{% endif %}"></i> <strong>Transport Mode:</strong> {{ option.transport_mode }}</p>
+        <p><i class="fas fa-leaf"></i> <strong>Carbon Footprint:</strong> {{ option.carbon_footprint }} kg CO2</p>
+        <p><i class="fas fa-user"></i> <strong>Travelers:</strong> {{ adults }} Adult(s), {{ children }} Child(ren)</p>
+        <p><i class="fas fa-pound-sign"></i> <strong>Total Price:</strong> £{{ option.price | round(2) }}</p>
+        <p><i class="fas fa-wallet"></i> <strong>Payment Method:</strong> {{ payment_method }}</p>
+        <p><i class="fas fa-envelope"></i> <strong>Confirmation Sent To:</strong> {{ email }}</p>
+        <p class="mt-4 text-center text-xl">A confirmation has been sent to your email. Thank you for choosing Green Journey Advisor!</p>
+        <a href="{{ url_for('index') }}" class="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-700 transition block text-center mt-4" aria-label="Return to Home"><i class="fas fa-home"></i> Back to Home</a>
+    </div>
+</section>
+{% endblock %}

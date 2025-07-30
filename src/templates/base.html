@@ -38,33 +38,43 @@
         return gk_fileData[filename] || "";
         }
         </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Journey Advisor</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
-    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
-    <script src="{{ url_for('static', filename='js/homepage.js') }}" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/homepage.js') }}"></script>
 </head>
-<body class="bg-green-50 text-gray-800 font-sans">
-    <header class="bg-green-600 text-white p-4">
-        <nav class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Green Journey Advisor</h1>
-            <ul class="flex space-x-4">
-                <li><a href="{{ url_for('index') }}" class="hover:underline" aria-label="Home">Home</a></li>
-                <li><a href="{{ url_for('options') }}" class="hover:underline" aria-label="Travel Options">Travel Options</a></li>
-                <li><a href="{{ url_for('add_option') }}" class="hover:underline" aria-label="Add Option">Add Option</a></li>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="{{ url_for('about') }}"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="{{ url_for('contact') }}"><i class="fas fa-envelope"></i> Contact</a></li>
+                {% if 'user_id' in session %}
+                <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                {% else %}
+                <li><a href="{{ url_for('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                <li><a href="{{ url_for('register') }}"><i class="fas fa-user-plus"></i> Register</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
-    <main class="container mx-auto p-4">
-        {% block content %}{% endblock %}
-    </main>
-    <footer class="bg-green-600 text-white p-4 text-center">
-        <p>© 2025 Green Journey Advisor. All rights reserved.</p>
-    </footer>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="max-w-md mx-auto mt-4">
+                {% for category, message in messages %}
+                    <p class="text-center text-{{ 'green-500' if category == 'success' else 'red-500' }} mb-4">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    {% block content %}
+    {% endblock %}
 </body>
 </html>
