@@ -15,16 +15,16 @@
             <label for="start_point" class="form-label"><i class="fas fa-map-marker-alt"></i> Start Point</label>
             <select id="start_point" name="start_point" class="w-full p-2 mb-4 border rounded" required onchange="updatePrice()">
                 <option value="" disabled selected>Select start point</option>
-                <option value="London">London</option>
-                <option value="Paris">Paris</option>
-                <option value="Amsterdam">Amsterdam</option>
+                {% for location in locations %}
+                <option value="{{ location }}">{{ location }}</option>
+                {% endfor %}
             </select>
             <label for="end_point" class="form-label"><i class="fas fa-map-marker-alt"></i> End Point</label>
             <select id="end_point" name="end_point" class="w-full p-2 mb-4 border rounded" required onchange="updatePrice()">
                 <option value="" disabled selected>Select end point</option>
-                <option value="London">London</option>
-                <option value="Paris">Paris</option>
-                <option value="Amsterdam">Amsterdam</option>
+                {% for location in locations %}
+                <option value="{{ location }}">{{ location }}</option>
+                {% endfor %}
             </select>
             <label for="inbound_date" class="form-label"><i class="fas fa-calendar-alt"></i> Inbound Date</label>
             <input type="date" id="inbound_date" name="inbound_date" class="w-full p-2 mb-4 border rounded" required>

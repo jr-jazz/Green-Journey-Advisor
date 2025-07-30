@@ -16,7 +16,7 @@ def get_db_connection():
         conn = mysql.connector.connect(
             host='localhost',
             user='root',
-            password='root',
+            password='root',  # Replace with your MySQL password
             database='green_journey'
         )
         return conn
@@ -35,7 +35,21 @@ def login_required(f):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    conn = get_db_connection()
+    if conn is None:
+        flash('Database connection failed', 'error')
+        return render_template('index.html', locations=[])
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT DISTINCT start_point FROM travel_options UNION SELECT DISTINCT end_point FROM travel_options")
+        locations = [row[0] for row in cursor.fetchall()]
+        cursor.close()
+        conn.close()
+        return render_template('index.html', locations=locations)
+    except Error as e:
+        print(f"Database error: {e}")
+        flash('Failed to load locations', 'error')
+        return render_template('index.html', locations=[])
 
 @app.route('/about')
 def about():
@@ -148,7 +162,7 @@ def select_route():
     session['adults'] = adults
     session['children'] = children
     if start_point == end_point:
-        return render_template('index.html', error="Start and end points cannot be the same.")
+        return render_template('index.html', error="Start and end points cannot be the same.", locations=[])
     conn = get_db_connection()
     if conn is None:
         return "Database connection failed", 500

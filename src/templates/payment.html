@@ -8,7 +8,6 @@
         <p><i class="fas fa-leaf"></i> <strong>Carbon Footprint:</strong> {{ option.carbon_footprint }} kg CO2</p>
         <p><i class="fas fa-user"></i> <strong>Travelers:</strong> {{ adults }} Adult(s), {{ children }} Child(ren)</p>
         <p><i class="fas fa-pound-sign"></i> <strong>Total Price:</strong> £{{ option.price | round(2) }}</p>
-        <p class="text-sm text-gray-600 mb-4">This is a mock payment form for demonstration purposes.</p>
         <form action="{{ url_for('process_payment') }}" method="POST" class="mt-4">
             <input type="hidden" name="option_id" value="{{ option.id }}">
             <label for="payment_method" class="form-label"><i class="fas fa-wallet"></i> Payment Method</label>

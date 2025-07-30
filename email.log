@@ -405,3 +405,153 @@ INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 16:53:54] "[36mGET /static/js/homepage
 INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 16:53:58] "GET / HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 16:53:58] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
 INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 16:53:58] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 295-950-339
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 17:14:47] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 17:14:47] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 17:14:47] "GET /static/css/homepage.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 17:14:47] "[36mGET /static/images/hero.jpeg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 17:14:52] "GET /register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 17:14:52] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 17:14:52] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:mysql.connector:package: mysql.connector.plugins
+INFO:mysql.connector:plugin_name: caching_sha2_password
+INFO:mysql.connector:AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 17:15:16] "[32mPOST /register HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 17:15:16] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 17:15:16] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 17:15:16] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 17:15:32] "[32mPOST /login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 17:15:32] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 17:15:32] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 17:15:32] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:11:29] "POST /select_route HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:11:29] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:11:29] "GET /static/js/homepage.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:11:29] "[36mGET /static/images/hero.jpeg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:11:53] "POST /select_route HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:11:54] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:11:54] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:12:02] "GET /pricing/1?adults=2&children=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:12:03] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:12:03] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:12:08] "GET /payment/1?adults=2&children=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:12:08] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:12:08] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:root:Mock email sent to test@mail.com: Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Subject: Green Journey Advisor - Payment Confirmation
+From: no-reply@greenjourneyadvisor.com
+To: test@mail.com
+
+UGF5bWVudCBDb25maXJtYXRpb24KClJvdXRlOiBMb25kb24gdG8gUGFyaXMKVHJhbnNwb3J0IE1v
+ZGU6IFRyYWluCkNhcmJvbiBGb290cHJpbnQ6IDAuMDUga2cgQ08yClByaWNlOiDCozEyNS4wMApU
+cmF2ZWxlcnM6IDIgQWR1bHQocyksIDEgQ2hpbGQocmVuKQpQYXltZW50IE1ldGhvZDogQ3JlZGl0
+IENhcmQKRW1haWw6IHRlc3RAbWFpbC5jb20KVGhhbmsgeW91IGZvciBjaG9vc2luZyBHcmVlbiBK
+b3VybmV5IEFkdmlzb3Ih
+
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:12:42] "POST /process_payment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:12:42] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:12:42] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:13:24] "GET /payment/1?adults=2&children=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:13:24] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:13:24] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:13:28] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:13:28] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:13:28] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:13:39] "POST /get_price HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:13:49] "POST /get_price HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:13:53] "POST /get_price HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:13:55] "POST /select_route HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:13:55] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:13:55] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:01] "GET /pricing/4?adults=2&children=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:01] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:01] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:12] "[33mPOST /get_price HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:15] "POST /get_price HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:29] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:30] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:30] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:32] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:32] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:32] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:33] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:33] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:33] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:36] "GET /contact HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:36] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:36] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:47] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:47] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:14:47] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:27:50] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:27:50] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:27:50] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:27:50] "[36mGET /static/images/hero.jpeg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:28:00] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:28:00] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:28:00] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:28:31] "POST /select_route HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:28:31] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:28:31] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:28:43] "POST /get_price HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:28:58] "POST /select_route HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:28:58] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:28:58] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:29:06] "GET /pricing/2?adults=1&children=0 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:29:06] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:29:06] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:29:31] "GET /payment/2?adults=1&children=0 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:29:31] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:29:31] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:root:Mock email sent to test@mail.com: Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Subject: Green Journey Advisor - Payment Confirmation
+From: no-reply@greenjourneyadvisor.com
+To: test@mail.com
+
+UGF5bWVudCBDb25maXJtYXRpb24KClJvdXRlOiBMb25kb24gdG8gUGFyaXMKVHJhbnNwb3J0IE1v
+ZGU6IEJ1cwpDYXJib24gRm9vdHByaW50OiAwLjA4IGtnIENPMgpQcmljZTogwqMzMC4wMApUcmF2
+ZWxlcnM6IDEgQWR1bHQocyksIDAgQ2hpbGQocmVuKQpQYXltZW50IE1ldGhvZDogQ3JlZGl0IENh
+cmQKRW1haWw6IHRlc3RAbWFpbC5jb20KVGhhbmsgeW91IGZvciBjaG9vc2luZyBHcmVlbiBKb3Vy
+bmV5IEFkdmlzb3Ih
+
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:11] "POST /process_payment HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:11] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:11] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:16] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:16] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:16] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:20] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:20] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:20] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:24] "GET /contact HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:24] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:24] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:28] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:28] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:28] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:57] "POST /select_route HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:57] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:30:57] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:31:09] "[33mPOST /get_price HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:31:26] "POST /select_route HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:31:26] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:31:26] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:32:13] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:32:13] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:32:13] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:32:21] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:32:21] "[36mGET /static/css/homepage.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [30/Jul/2025 22:32:21] "[36mGET /static/js/homepage.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\sam4s\\Documents\\GitHub\\Green-Journey-Advisor\\src\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 295-950-339
