@@ -1,7 +1,0 @@
-**Description**: A low-fidelity sketch of the add option page, showing a header, a form with fields for destination, transport mode, and carbon footprint, and a submit button.
-
-**Note**: Create in Figma with:
-- Header: Same as homepage.
-- Form: Rectangles labeled “Destination Input”, “Transport Select”, “Carbon Footprint Input”, “Submit Button”.
-- Footer: Same as homepage.
-Export as `low_fidelity_sketch_add_option.png` and place in `prototypes/`.

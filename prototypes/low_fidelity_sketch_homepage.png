@@ -1,8 +1,0 @@
-**Description**: A low-fidelity sketch of the homepage, drawn as a simple wireframe showing a header with navigation, a hero section with a call-to-action, and a footer. This is a placeholder; create a hand-drawn sketch or use Figma to draw a basic layout (e.g., rectangles for nav, hero image, button, footer) and export as PNG.
-
-**Note**: Since I cannot generate images, save a blank PNG or create the sketch in Figma with:
-- Header: Rectangle labeled “Green Journey Advisor | Home | Options | Add Option”
-- Hero: Large rectangle labeled “Hero Image: Sustainable Travel”
-- Button: Rectangle labeled “Explore Options”
-- Footer: Rectangle labeled “© 2025”
-Export as `low_fidelity_sketch_homepage.png` and place in `prototypes/`.

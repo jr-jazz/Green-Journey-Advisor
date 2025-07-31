@@ -1,8 +1,0 @@
-**Description**: A low-fidelity sketch of the travel options page, showing a header, a grid of travel options, and a button to add a new option.
-
-**Note**: Create in Figma with:
-- Header: Same as homepage.
-- Grid: Three rectangles labeled “Option 1: Destination, Transport, CO₂”, etc.
-- Button: Rectangle labeled “Add New Option”
-- Footer: Same as homepage.
-Export as `low_fidelity_sketch_options.png` and place in `prototypes/`.

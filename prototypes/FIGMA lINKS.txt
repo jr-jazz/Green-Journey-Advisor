@@ -1,0 +1,4 @@
+LOGIN PAGE: https://www.figma.com/design/XBpCtrOHQqf3yFj2gidqUd/Green-Journey-Advisor-Wireframes?node-id=5-87 
+HOMEPAGE: https://www.figma.com/design/XBpCtrOHQqf3yFj2gidqUd/Green-Journey-Advisor-Wireframes?node-id=1-3
+OPTIONS PAGE: https://www.figma.com/design/XBpCtrOHQqf3yFj2gidqUd/Green-Journey-Advisor-Wireframes?node-id=4-67 
+PAYMENT PAGE: https://www.figma.com/design/XBpCtrOHQqf3yFj2gidqUd/Green-Journey-Advisor-Wireframes?node-id=5-110  
