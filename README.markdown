@@ -18,7 +18,7 @@ A web application for planning sustainable travel options, built with Flask, SQL
    ```
 4. Initialize the SQLite database:
    ```bash
-   python src/database/init_db.py
+   python src/database/init_db_mysql.py
    ```
 5. Run the application:
    ```bash
@@ -37,4 +37,4 @@ A web application for planning sustainable travel options, built with Flask, SQL
 - `src/app.py`: Main Flask application.
 - `src/templates/`: HTML templates for the interface.
 - `src/static/`: CSS and JavaScript files.
-- `src/database/`: SQLite database and initialization script.
+- `src/database/`: SQL database and initialization script.
